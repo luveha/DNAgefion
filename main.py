@@ -66,7 +66,6 @@ OutTextAmino = Entry(program, width=80)
 
 #Button
 DNAinputButton = Button(program, text='Indsæt', command=DNAgetInput, bg='white', fg='blue')
-ChangeCursor = Button(program, text='Ændre mus')
 BLASTbutton = Button(program, text='BLAST!!', command=BLAST, bg='white', fg='blue')
 
 #Grid Placement
@@ -79,10 +78,6 @@ RNAText.grid(row=5, column=0)
 OutTextRna.grid(row=6, column=0)
 AminoText.grid(row=7, column=0)
 OutTextAmino.grid(row=8, column=0)
-ChangeCursor.grid(row=9, column=0)
-BLASTbutton.grid(row=10, column=0)
+BLASTbutton.grid(row=9, column=0)
 
 program.mainloop()
-
-
-
