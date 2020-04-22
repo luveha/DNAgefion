@@ -3,10 +3,9 @@ from tkinter import *
 import os
 import time
 from pyglet.window import Window
-
+from main import * #program
 #Commands
-def cursorChange(root):
-    root.config(cursor='wait')
+def cursorChange():
+    program.config(cursor='wait')
     time.sleep(0.5)
-    root.config(cursor='')
-        
+    program.config(cursor='')
