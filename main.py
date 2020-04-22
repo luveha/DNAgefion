@@ -12,6 +12,7 @@ DNAcombinations = ['UUU','UUC','UUA','UUG','CUU','CUC','CUA','CUG','AUU','AUC', 
 AminoAcids = ['Phe','Phe','Leu','Leu','Leu','Leu','Leu','Leu','Ile','Ile','Ile','Met','Val','Val','Val','Val','Ser','Ser','Ser','Ser','Pro','Pro','Pro','Pro','Thr','Thr','Thr','Thr','Ala','Ala','Ala','Ala','Tyr','Tyr','STOP','STOP','His','His','Gln','Gln','Asn','Asn','Lys','Lys','Asp','Asp','Glu','Glu','Cys','Cys','STOP','Trp','Arg','Arg','Arg','Arg','Ser','Ser','Arg','Arg','Gly','Gly','Gly','Gly']
 AllowedLetters = set('ATCG ')
 cursorVal = 1
+teststring = 'GAAATATCATCTTTGGTGTTTCCTATGATGAATATAGATACAGAAGCGTCGGCT' #koder for noget cystisk fibrose transmembran
 
 #Commands
 def DNAgetInput():
@@ -78,7 +79,8 @@ RNAText.grid(row=5, column=0)
 OutTextRna.grid(row=6, column=0)
 AminoText.grid(row=7, column=0)
 OutTextAmino.grid(row=8, column=0)
-BLASTbutton.grid(row=9, column=0)
+ChangeCursor.grid(row=9, column=0)
+BLASTbutton.grid(row=10, column=0)
 
 program.mainloop()
 
