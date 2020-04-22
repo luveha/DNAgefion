@@ -78,8 +78,7 @@ RNAText.grid(row=5, column=0)
 OutTextRna.grid(row=6, column=0)
 AminoText.grid(row=7, column=0)
 OutTextAmino.grid(row=8, column=0)
-ChangeCursor.grid(row=9, column=0)
-BLASTbutton.grid(row=10, column=0)
+BLASTbutton.grid(row=9, column=0)
 
 program.mainloop()
 
