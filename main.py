@@ -4,6 +4,7 @@ import os
 import time
 from dnaEdit import *
 from GUIdefs import *
+from BLAST import *
 from pyglet.window import Window
 
 #Defines
