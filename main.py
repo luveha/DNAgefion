@@ -2,49 +2,20 @@ import string
 from tkinter import *
 import os
 import time
+from variables import *
 from dnaEdit import *
 from GUIdefs import *
 from BLAST import *
+from popUp import *
 from pyglet.window import Window
 
-
-#Commands
-
-def DNAgetInput():
-    cursorChange()
-    returnText = str(DNAinputBox.get())
-    DNAstring = addSpace(removeSpace(str(DNAinputBox.get())))
-    LenDNAstring = str(len(DNAinputBox.get()))
-    LenDeleteOutTextComp = str(len(OutTextComp.get()))
-    LenDeleteRNA = str(len(OutTextRna.get()))
-    LenDeleteAmino = str(len(OutTextAmino.get()))
-    DeleteOut = OutTextComp.delete(first=0, last=LenDeleteOutTextComp)
-    DeleteIn = DNAinputBox.delete(first=0, last=LenDNAstring)
-    DeleteInRNA = OutTextRna.delete(first=0, last=LenDeleteRNA)
-    DeleteInAmino = OutTextAmino.delete(first=0, last=LenDeleteAmino)
-    if not set(DNAstring).issubset(AllowedLetters):
-        
-        DeleteInRNA
-        DeleteInAmino
-        DNAinputBox.insert(END, returnText)
-        OutTextComp.insert(END, 'Der er indsat et/flere bogstav som ikke er enten A, T, C eller G')
-    elif set(DNAstring).issubset(AllowedLetters):
-        Comp = CompString(DNAstring)
-        RnaSet = T2U(DNAstring)
-        AminoAcid3Let = Space2hyphen(aminoLoop(RnaSet, DNAcombinations, AminoAcids))
-        DeleteOut
-        DeleteIn
-        DeleteInRNA
-        DeleteInAmino
-        DNAinputBox.insert(END, DNAstring)
-        OutTextComp.insert(END, Comp)
-        OutTextRna.insert(END, RnaSet)
-        OutTextAmino.insert(END, AminoAcid3Let)
 #TKinter GUI
 program = Tk()
 program.title('DNA program')
 program.geometry('500x500')
 program.wm_iconbitmap('DNAlogo.ico')
+BackgroundImage = PhotoImage(file=NiceDude)
+Background = Label(program, image=BackgroundImage)
 
 #Text
 DNAinputText = Label(program, text='Indsæt din DNA ensidet streng')
@@ -60,8 +31,8 @@ OutTextAmino = Entry(program, width=80)
 
 
 #Button
-DNAinputButton = Button(program, text='Indsæt', command=DNAgetInput, bg='white', fg='blue')
-BLASTbutton = Button(program, text='BLAST!!', command=BLAST,bg='white', fg='blue')
+DNAinputButton = Button(program, text='Indsæt', command=lambda: DNAmagic(DNAinputBox, OutTextComp, OutTextRna, OutTextAmino), bg='white', fg='blue')
+BLASTbutton = Button(program, text='BLAST!!', command=lambda: BLAST(DNAinputBox),bg='white', fg='blue')
 
 #Grid Placement
 DNAinputText.grid(row=0, column=0)
@@ -74,6 +45,7 @@ OutTextRna.grid(row=6, column=0)
 AminoText.grid(row=7, column=0)
 OutTextAmino.grid(row=8, column=0)
 BLASTbutton.grid(row=9, column=0)
+#Background.pack(side='top', fill='both', expand='yes')
 
 program.mainloop()
 
