@@ -45,8 +45,6 @@ program = Tk()
 program.title('DNA program')
 program.geometry('500x500')
 program.wm_iconbitmap('DNAlogo.ico')
-BackgroundImage = PhotoImage(file=NiceDude)
-Background = Label(program, image=BackgroundImage)
 
 #Text
 DNAinputText = Label(program, text='Indsæt din DNA ensidet streng')
