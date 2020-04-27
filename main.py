@@ -10,6 +10,14 @@ from popUp import *
 from pyglet.window import Window
 
 #Removes all text in var entries
+def BLAST(var):
+    browser = webdriver.Firefox()
+    browser.get('https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome')
+    knap = browser.find_element_by_css_selector('#b1') #blastknap
+    textarea = browser.find_element_by_css_selector('#seq') #input
+    textarea.send_keys(removeSpace(str(var.get())))
+    knap.click()
+
 def clear(*boxes):
     for i in range(0, len(boxes)):
         boxes[i].delete(first=0, last=len(boxes[i].get()))
